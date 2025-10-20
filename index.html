@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scentja Perfume</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">  
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+        <div class="container">
+            <a class="navbar-brand brand-logo" href="#home">SCENTJA PERFUME</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#products">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn-cart" onclick="toggleCart()">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="9" cy="21" r="1"></circle>
+                                <circle cx="20" cy="21" r="1"></circle>
+                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                            </svg>
+                            <span class="cart-count" id="cartCount">0</span>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- hero -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-6">
+                    <h1 class="hero-title">Discover Your
+                        <span class="gold-text">Signature Scent</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Temukan koleksi parfum mewah kami yang dirancang untuk mereka yang menghargai keanggunan dan kemewahan.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#products" class="btn btn-gold">Explore Collection</a>
+                        <a href="#contact" class="btn btn-outline-gold">Contact Us</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-image-container">
+                        <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?w=800&q=80" alt="Luxury Perfume" class="hero-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- knp pilih kami -->
+    <section class="features-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="feature-card text-center">
+                        <div class="feature-icon">✨</div>
+                        <h3>Premium Quality</h3>
+                        <p>Parfum berkualitas tinggi dengan bahan pilihan dari berbagai dunia</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="feature-card text-center">
+                        <div class="feature-icon">🏆</div>
+                        <h3>Award Winning</h3>
+                        <p>Diakui secara global untuk keunggulan dalam komposisi wewangian</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="feature-card text-center">
+                        <div class="feature-icon">🛡️</div>
+                        <h3>Authentic Guarantee</h3>
+                        <p>100% produk asli dengan sertifikat keaslian</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- produk -->
+    <section id="products" class="products-section">
+        <div class="container">
+            <h2 class="section-title text-center">Our Collection</h2>
+            <p class="section-subtitle text-center">Jelajahi koleksi parfum mewah kami</p>
+            
+            <div class="filter-section text-center mb-5">
+                <button class="filter-btn active" onclick="filterProducts('All')">All</button>
+                <button class="filter-btn" onclick="filterProducts('Women')">Women</button>
+                <button class="filter-btn" onclick="filterProducts('Men')">Men</button>
+                <button class="filter-btn" onclick="filterProducts('Unisex')">Unisex</button>
+            </div>
+
+            <div class="row" id="productsContainer">
+            </div>
+        </div>
+    </section>
+
+    <!-- contact -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title text-center">Contact Us</h2>
+            <p class="section-subtitle text-center">Kami senang mendengar masukan dari Anda</p>
+            
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="contact-form-card">
+                        <h3>Send us a Message</h3>
+                        <form id="contactForm">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Nama Lengkap *</label>
+                                <input type="text" class="form-control" id="name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email *</label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Nomor Telepon</label>
+                                <input type="tel" class="form-control" id="phone">
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Pesan *</label>
+                                <textarea class="form-control" id="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-gold w-100">Kirim Pesan</button>
+                        </form>
+                        <div id="formSuccess" class="success-message" style="display: none;">
+                            Terima kasih! Pesan Anda telah dikirim.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="contact-info-card">
+                        <h3>Get in Touch</h3>
+                        <p>Punya pertanyaan tentang produk kami? Kami siap membantu!</p>
+                        
+                        <div class="contact-info-item">
+                            <strong>📍 Alamat:</strong>
+                            <p>Jl. Ketintang No. 100<br>Kota Surabaya</p>
+                        </div>
+                        
+                        <div class="contact-info-item">
+                            <strong>📞 Telepon:</strong>
+                            <p>+62 816 4948 7325</p>
+                        </div>
+                        
+                        <div class="contact-info-item">
+                            <strong>✉️ Email:</strong>
+                            <p>info@scentjaperfume.com<br>support@scentjaperfume.com</p>
+                        </div>
+                        
+                        <div class="contact-info-item">
+                            <strong>🕐 Jam Operasional:</strong>
+                            <p>Senin - Sabtu: 10:00 - 22:00<br>Minggu: 12:00 - 22:00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h3 class="footer-brand">Scentja Perfume</h3>
+                    <p>Menciptakan wewangian luar biasa yang menceritakan kisah dan membangkitkan jiwa.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h4>Contact Info</h4>
+                    <p>Jl. Ketintang No. 100<br>Kota Surabaya<br>Phone: +62 816 4948 7325</p>
+                </div>
+            </div>
+            <div class="footer-bottom text-center">
+                <p>&copy; 2025 Scentja Perfume. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- keranjang pemesanan -->
+    <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h2 id="cartTitle">Shopping Cart</h2>
+            <button class="cart-close" onclick="toggleCart()">&times;</button>
+        </div>
+        <div class="cart-body" id="cartBody">
+            <div class="empty-cart" id="emptyCart">
+                <p>Keranjang Anda kosong</p>
+                <button class="btn btn-gold" onclick="toggleCart()">Continue Shopping</button>
+            </div>
+            <div id="cartItems" style="display: none;"></div>
+        </div>
+        <div class="cart-footer" id="cartFooter" style="display: none;">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span class="total-price" id="totalPrice">Rp 0</span>
+            </div>
+            <button class="btn btn-gold w-100 mb-2" onclick="showCheckout()">Checkout</button>
+            <button class="btn btn-outline-gold w-100" onclick="toggleCart()">Continue Shopping</button>
+        </div>
+    </div>
+
+    <!-- cekout -->
+    <div class="modal fade" id="checkoutModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Checkout</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="orderSummary"></div>
+                    <form id="checkoutForm">
+                        <h4 class="mt-4">Informasi Pengiriman</h4>
+                        <div class="mb-3">
+                            <label class="form-label">Nama Lengkap *</label>
+                            <input type="text" class="form-control" id="checkoutName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email *</label>
+                            <input type="email" class="form-control" id="checkoutEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Nomor Telepon *</label>
+                            <input type="tel" class="form-control" id="checkoutPhone" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Alamat *</label>
+                            <textarea class="form-control" id="checkoutAddress" rows="2" required></textarea>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Kota *</label>
+                                <input type="text" class="form-control" id="checkoutCity" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Kode Pos *</label>
+                                <input type="text" class="form-control" id="checkoutPostal" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-gold w-100">Place Order</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- notif -->
+    <div class="notification-toast" id="notification"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="script.js"></script>
+</body>
+</html>
